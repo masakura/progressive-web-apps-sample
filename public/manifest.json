@@ -1,12 +1,12 @@
 {
   "lang": "ja",
-  "name": "WPA Sample",
-  "short_name": "WPA",
+  "name": "PWA Sample",
+  "short_name": "PWA",
   "icons": [{
     "src": "/app-icon.png",
     "sizes": "144x144",
     "type": "image/png"
   }],
-  "start_url": "https://example.com/",
+  "start_url": "https://pwa.arukascloud.io",
   "display": "standalone"
 }
