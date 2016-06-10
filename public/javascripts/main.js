@@ -23,7 +23,20 @@
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
                 },
-                body: `endpoint=${endpoint}`
+                body: `endpoint=${encodeURIComponent(endpoint)}`
             });
         });
+
+    $(document).on('click', '#submit', () => {
+        const input = $('#input').val();
+
+        fetch('/notification', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+            },
+            body: `message=${encodeURIComponent(input)}`
+       });
+    });
 })();
+

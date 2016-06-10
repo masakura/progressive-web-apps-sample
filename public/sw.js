@@ -4,10 +4,13 @@
     console.log('start sw worker');
 
     self.addEventListener('push', event => {
-        const notification = self.registration.showNotification('PWA Notification', {
-            body: 'registration',
-            icon: '/app-icon.png'
-        });
-        event.waitUntil(notification);
+        const promise = fetch('/message')
+            .then(res => res.json())
+            .then(data => self.registration.showNotification('PWA Notification', {
+                body: data.message,
+                icon: '/app-icon.png'
+            }));
+
+        event.waitUntil(promise);
     });
 })();
