@@ -7,6 +7,7 @@
     "sizes": "144x144",
     "type": "image/png"
   }],
-  "start_url": "https://pwa.arukascloud.io",
+  "start_url": "/",
+  "gcm_sender_id": "396212782346",
   "display": "standalone"
 }
