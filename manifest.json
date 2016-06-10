@@ -1,0 +1,12 @@
+{
+  "lang": "ja",
+  "name": "WPA Sample",
+  "short_name": "WPA",
+  "icons": [{
+    "src": "/app-icon.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }],
+  "start_url": "https://example.com/",
+  "display": "standalone"
+}
