@@ -16,19 +16,29 @@ router.get('/about', (req, res) => {
 });
 
 router.post('/registration', (req, res) => {
-  const endpoint = req.endpoint;
+  const endpoint = req.body.endpoint;
 
   endpoints.push(endpoint);
+  console.log(endpoint);
+
+  const body = JSON.stringify({
+    'registration_ids' : [endpoint]
+  });
+  console.log(body);
 
   fetch('https://android.googleapis.com/gcm/send', {
+    method: 'POST',
     headers: {
       Authorization: 'key=AIzaSyCf9HcLQYkyVwwKUssgpqEc6BEHooNrtWs',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      registrationIds : [endpoint]
-    })
-  });
+    body: body
+  })
+      .then(res => {
+        console.log(res.status);
+        return res.text();
+      })
+      .then(text => console.log(text));
 
   res.end();
 });
