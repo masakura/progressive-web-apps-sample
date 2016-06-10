@@ -14,7 +14,16 @@
                 userVisibleOnly: true
             });
         })
-        .then(sub => {
-            console.log('endpoint: ', sub.endpoint);
-        })
+        .then(sub => sub.endpoint.replace(/^https:\/\/android.googleapis.com\/gcm\/send\//, ''))
+        .then(endpoint => {
+            console.log(endpoint)
+
+            fetch('/registration', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+                },
+                body: `endpoint=${endpoint}`
+            });
+        });
 })();
